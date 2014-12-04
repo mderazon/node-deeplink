@@ -29,14 +29,16 @@ This example creates an endpoint `GET /deeplink` in your web server.
 
 Assuming your server address is `https://cupsapp.com`, you can use the link `https://cupsapp.com/deeplink?url=app://account` so when users will open it the app will open with `app://account` deeplink or the users will be redirected to download the app in case they don't have it.
 
+**Note on url encoding:** to avoid problems with url parsing libraries, the deep link (`app://...` part) has to be url encoded. *node-deeplink* will decode the url correctly. So, in the above example, the link is actually `https://cupsapp.com/deeplink?url=app%3A%2F%2Faccount`
+
 ### Available options:
 *node-deeplink* currently supports Android and IOS only.
 
-Options to pass on to node-deeplink are:
+Options to pass on to *node-deeplink* are:
 - `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc.
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
 - `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](from https://linkmaker.itunes.apple.com/us/).
 
 
 ### Behaviour
-node-deeplink expects the request to contain a query param `url=...` so that the deeplink mechanism will work. If no such query is present then node-deeplink ignores the request and calls `next()` so the request will be handled by the next middleware.
+*node-deeplink* expects the request to contain a query param `url=...` so that the deeplink mechanism will work. If no such query is present then *node-deeplink* ignores the request and calls `next()` so the request will be handled by the next middleware.
