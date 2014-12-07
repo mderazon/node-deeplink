@@ -1,5 +1,9 @@
 # node-deeplink
-Easily add express endpoint to handle mobile deeplinks in your web server.
+[![Build Status](https://drone.io/github.com/mderazon/node-deeplink/status.png)](https://drone.io/github.com/mderazon/node-deeplink/latest)
+
+Easily create express endpoint to handle mobile deeplinks in your web server.
+
+Takes away the pain of forwarding users to the right app store / mobile app depending on their platform.
 
 ## Use case
 
@@ -42,3 +46,8 @@ Options to pass on to *node-deeplink* are:
 
 ### Behaviour
 *node-deeplink* expects the request to contain a query param `url=...` so that the deeplink mechanism will work. If no such query is present then *node-deeplink* ignores the request and calls `next()` so the request will be handled by the next middleware.
+
+
+### TODO
+- Add more robust user-agent discovery.
+- Maybe expose rendered html page in api instead of http sending it back to the user.
