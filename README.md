@@ -62,6 +62,9 @@ When a request comes in, the following query params a re checked:
 - Enable non-express use.
 
 ### Changelog
+`v0.1.1`:
+- fixed an issue in Android when using links that have `://` in their url.
+
 `v0.1.0`:
 -  Added support for fallback url as a query param.
 -  Removed some unnecessary dependencies.

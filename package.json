@@ -1,6 +1,6 @@
 {
   "name": "node-deeplink",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easily create an endpoint in your web server that redirects deep links to mobile apps",
   "main": "lib/deeplink.js",
   "scripts": {
