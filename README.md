@@ -1,9 +1,9 @@
-# node-deeplink
-[![NPM](https://nodei.co/npm/node-deeplink.png?downloads=true)](https://nodei.co/npm/node-deeplink/)
+# node-deeplink [![Build Status](https://drone.io/github.com/mderazon/node-deeplink/status.png)](https://drone.io/github.com/mderazon/node-deeplink/latest)
 
-[![Build Status](https://drone.io/github.com/mderazon/node-deeplink/status.png)](https://drone.io/github.com/mderazon/node-deeplink/latest)
+> Easily create express endpoint to handle mobile deeplinks in your web server
 
-Easily create express endpoint to handle mobile deeplinks in your web server.
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 
 Takes away the pain of forwarding users to the right app store / mobile app depending on their platform.
 
