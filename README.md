@@ -1,4 +1,4 @@
-# node-deeplink [![Build Status](https://drone.io/github.com/mderazon/node-deeplink/status.png)](https://drone.io/github.com/mderazon/node-deeplink/latest)
+# node-deeplink [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink)
 
 > Easily create express endpoint to handle mobile deeplinks in your web server
 
@@ -44,8 +44,8 @@ Assuming your server address is `https://acme.org`, you can use the link `https:
 Options to pass on to *node-deeplink* are:
 - `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
-- `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](from https://linkmaker.itunes.apple.com/us/).
-
+- `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
+- `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
 
 ### Query params
 When a request comes in, the following query params a re checked:
@@ -62,9 +62,14 @@ When a request comes in, the following query params a re checked:
 - Enable non-express use.
 
 ### Changelog
+`v0.2.0`:
+- added an option for a title on the intermediate html page.
+- fixed an issue on ios ([#4](https://github.com/mderazon/node-deeplink/issues/4))
+- change code style to [feross/standard](https://github.com/feross/standard)
+
 `v0.1.1`:
 - fixed an issue in Android when using links that have `://` in their url.
 
 `v0.1.0`:
--  Added support for fallback url as a query param.
--  Removed some unnecessary dependencies.
+- added support for fallback url as a query param.
+- removed some unnecessary dependencies.
