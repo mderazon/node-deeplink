@@ -5,7 +5,7 @@
   "main": "lib/deeplink.js",
   "scripts": {
     "lint": "standard",
-    "test": "standard && mocha test/test.js"
+    "test": "standard && mocha test/test.js -t 4000"
   },
   "author": "Michael Derazon <mderazon@hotmail.com>",
   "homepage": "https://github.com/mderazon/node-deeplink",
