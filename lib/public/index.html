@@ -4,6 +4,7 @@
 	<title>{{title}}</title>
 </head>
 <body>
+  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript">
     var options = {
       fallback: '{{fallback}}',
@@ -11,9 +12,6 @@
       ios_store_link: '{{ios_store_link}}',
       android_package_name: '{{android_package_name}}'
     }
-  </script>
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript">
   	deep_link(options)
   </script>
 </body>
