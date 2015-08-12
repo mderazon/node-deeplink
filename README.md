@@ -1,9 +1,9 @@
-# node-deeplink
-[![NPM](https://nodei.co/npm/node-deeplink.png?downloads=true)](https://nodei.co/npm/node-deeplink/)
+# node-deeplink [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink)
 
-[![Build Status](https://drone.io/github.com/mderazon/node-deeplink/status.png)](https://drone.io/github.com/mderazon/node-deeplink/latest)
+> Easily create express endpoint to handle mobile deeplinks in your web server
 
-Easily create express endpoint to handle mobile deeplinks in your web server.
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 
 Takes away the pain of forwarding users to the right app store / mobile app depending on their platform.
 
@@ -44,8 +44,8 @@ Assuming your server address is `https://acme.org`, you can use the link `https:
 Options to pass on to *node-deeplink* are:
 - `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
-- `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](from https://linkmaker.itunes.apple.com/us/).
-
+- `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
+- `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
 
 ### Query params
 When a request comes in, the following query params a re checked:
@@ -60,11 +60,3 @@ When a request comes in, the following query params a re checked:
 ### TODO
 - Better user-agent discovery.
 - Enable non-express use.
-
-### Changelog
-`v0.1.1`:
-- fixed an issue in Android when using links that have `://` in their url.
-
-`v0.1.0`:
--  Added support for fallback url as a query param.
--  Removed some unnecessary dependencies.
