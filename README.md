@@ -24,9 +24,9 @@ var deeplink = require('node-deeplink')
 
 var app = express();
 
-app.get('/deeplink', deeplink({ 
+app.get('/deeplink', deeplink({
     fallback: 'https://cupsapp.com',
-    android_package_name: 'com.citylifeapps.cups', 
+    android_package_name: 'com.citylifeapps.cups',
     ios_store_link: 'https://itunes.apple.com/us/app/cups-unlimited-coffee/id556462755?mt=8&uo=4',
 }));
 
@@ -46,6 +46,8 @@ Options to pass on to *node-deeplink* are:
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
 - `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
 - `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
+- `ga`: **optional**. Google analytics Tracking ID. Defaults to an empty string.
+- `referrer`: **optional**. Referrer for Google Play Campaign Measurement. Defaults to an empty string.
 
 ### Query params
 When a request comes in, the following query params a re checked:

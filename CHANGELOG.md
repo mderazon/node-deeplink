@@ -1,5 +1,8 @@
 # Changes
 
+`v0.2.2`:
+- added an option for a ga, referrer.
+
 `v0.2.1`:
 - fix Firefox android problem [#3](https://github.com/mderazon/node-deeplink/issues/3)
 
