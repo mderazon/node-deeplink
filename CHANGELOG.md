@@ -1,5 +1,8 @@
 # Changes
 
+`v0.2.3`:
+- add referrer to intent.
+
 `v0.2.2`:
 - added an option for a ga, referrer.
 
