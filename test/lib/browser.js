@@ -13,7 +13,6 @@ module.exports = function (ua) {
   var server
 
   obj.go = function (url, opts, callback) {
-
     app.get('/', deeplink(opts))
 
     server = app.listen(3000)
@@ -26,7 +25,6 @@ module.exports = function (ua) {
         }
         loc++
       }
-
     })
 
     browser.visit('/?url=' + url, noop)

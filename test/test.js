@@ -43,7 +43,6 @@ describe('android', function () {
       done()
     })
   })
-
 })
 
 describe('ios', function () {
@@ -65,7 +64,6 @@ describe('ios', function () {
       assert.equal(res, url)
       done()
     })
-
   })
 
   it('should return the fallback url when no ios store link defined in ios', function (done) {
@@ -76,7 +74,6 @@ describe('ios', function () {
       done()
     })
   })
-
 })
 
 describe('general', function () {
@@ -100,5 +97,4 @@ describe('general', function () {
       done()
     })
   })
-
 })
