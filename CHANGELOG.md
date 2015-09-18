@@ -1,5 +1,11 @@
 # Changes
 
+`v0.2.7`:
+- fix Safari in ios 9 problem [#8](https://github.com/mderazon/node-deeplink/issues/8)
+
+`v0.2.6`:
+- fix Chrome for ios problem [#7](https://github.com/mderazon/node-deeplink/issues/7)
+
 `v0.2.1`:
 - fix Firefox android problem [#3](https://github.com/mderazon/node-deeplink/issues/3)
 
