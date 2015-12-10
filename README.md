@@ -14,6 +14,8 @@ For more details, see [issue #9](https://github.com/mderazon/node-deeplink/issue
 
 If you're looking for a solution that will works on both Android and ios, it's probably better to look at Universal Links for [ios](https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12) and App Links for [Android](http://developer.android.com/training/app-links/index.html).
 
+If you started using Universal Links, you can still use this module as a fallback mechanism for older ios versions.
+
 ## Use case
 
 Suppose you have a custom url scheme `app://` handled by your mobile apps. You want to create a universal "smart" link that will know where to send the user:
