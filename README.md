@@ -1,11 +1,18 @@
-# node-deeplink [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink)
+# node-deeplink [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 
 > Easily create express endpoint to handle mobile deeplinks in your web server
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 
 Takes away the pain of forwarding users to the right app store / mobile app depending on their platform.
+
+## Important update
+
+In ios >= 9 and especially in ios 9.2, Apple has made it impossible to provide a smooth user experience to redirect user to app / fallback to app store from javascript. Their clear direction is pushing towards using Universal Links instead. 
+
+For more details, see [issue #9](https://github.com/mderazon/node-deeplink/issues/9) and [this blog post](http://email.branch.io/ios-9.2-release-important-announcement).
+
+If you're looking for a solution that will works on both Android and ios, it's probably better to look at Universal Links for [ios](https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12) and App Links for [Android](http://developer.android.com/training/app-links/index.html).
 
 ## Use case
 
@@ -39,12 +46,12 @@ Assuming your server address is `https://acme.org`, you can use the link `https:
 
 
 ### Available options
-*node-deeplink* currently only supports Android and IOS.
+*node-deeplink* currently only supports Android and ios.
 
 Options to pass on to *node-deeplink* are:
 - `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
-- `ios_store_link`: **optional**. In case you want to support IOS deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
+- `ios_store_link`: **optional**. In case you want to support ios deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
 - `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
 
 ### Query params
