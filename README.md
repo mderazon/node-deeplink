@@ -8,13 +8,13 @@ Takes away the pain of forwarding users to the right app store / mobile app depe
 
 ## Important update
 
-In ios >= 9 and especially in ios 9.2, Apple has made it impossible to provide a smooth user experience to redirect user to app / fallback to app store from javascript. Their clear direction is pushing towards using Universal Links instead. 
+In ios >= 9, Apple has made it impossible to provide a smooth user experience to redirect user to app / fallback to app store from javascript. Their clear direction is pushing towards using Universal Links instead. 
 
 For more details, see [issue #9](https://github.com/mderazon/node-deeplink/issues/9) and [this blog post](http://email.branch.io/ios-9.2-release-important-announcement).
 
-If you're looking for a solution that will works on both Android and ios, it's probably better to look at Universal Links for [ios](https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12) and App Links for [Android](http://developer.android.com/training/app-links/index.html).
+To get the best user experience, it's probably better to look at Universal Links for [ios](https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12) and App Links for [Android](http://developer.android.com/training/app-links/index.html).
 
-If you started using Universal Links, you can still use this module as a fallback mechanism for older ios versions.
+If you already started using Universal Links, you can still use this module as a fallback mechanism for older ios versions.
 
 ## Use case
 
