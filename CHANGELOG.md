@@ -1,5 +1,8 @@
 # Changes
 
+`v0.3.0`:
+- handle ios 10 in webkit approach as well [PR](https://github.com/mderazon/node-deeplink/pull/11) @grabcode
+
 `v0.2.7`:
 - fix Safari in ios 9 problem [#8](https://github.com/mderazon/node-deeplink/issues/8)
 
