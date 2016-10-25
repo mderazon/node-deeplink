@@ -11,8 +11,8 @@ var Browser = require('./lib/browser')
 
 var url = 'app://test'
 var fallback = 'https://vandelay.com/'
-var android_package_name = 'ind.vandelay.art'
-var ios_store_link = 'https://itunes.apple.com/us/app/art-vandelay/id556462755?mt=8&uo=4'
+var androidPackageName = 'ind.vandelay.art'
+var iosStoreLink = 'https://itunes.apple.com/us/app/art-vandelay/id556462755?mt=8&uo=4'
 
 describe('android', function () {
   var browser
@@ -28,7 +28,7 @@ describe('android', function () {
   it('should return intent on android device', function (done) {
     browser.go(url, {
       fallback: fallback,
-      android_package_name: android_package_name
+      android_package_name: androidPackageName
     }, function (res) {
       assert.equal(res, 'intent://test#Intent;scheme=app;package=ind.vandelay.art;end;')
       done()
@@ -59,7 +59,7 @@ describe('ios', function () {
   it('should return deeplink url on ios device', function (done) {
     browser.go(url, {
       fallback: fallback,
-      ios_store_link: ios_store_link
+      ios_store_link: iosStoreLink
     }, function (res) {
       assert.equal(res, url)
       done()
@@ -90,8 +90,8 @@ describe('general', function () {
   it('should go to fallback url on an unsupported device', function (done) {
     browser.go(url, {
       fallback: fallback,
-      ios_store_link: ios_store_link,
-      android_package_name: android_package_name
+      ios_store_link: iosStoreLink,
+      android_package_name: androidPackageName
     }, function (res) {
       assert.equal(res, fallback)
       done()
