@@ -1,38 +1,38 @@
-var Browser = require('zombie')
-var express = require('express')
-var deeplink = require('../..')
+const Browser = require('zombie');
+const express = require('express');
+const deeplink = require('../..');
 
-var noop = function () {}
+const noop = () => {};
 
-module.exports = function (ua) {
-  var obj = {}
-  Browser.localhost('localhost', 3000)
-  var browser = new Browser()
-  browser.userAgent = ua
-  var app = express()
-  var server
+module.exports = function(ua) {
+  const obj = {};
+  Browser.localhost('localhost', 3000);
+  const browser = new Browser();
+  browser.userAgent = ua;
+  const app = express();
+  let server;
 
-  obj.go = function (url, opts, callback) {
-    app.get('/', deeplink(opts))
+  obj.go = (url, opts, callback) => {
+    app.get('/', deeplink(opts));
 
-    server = app.listen(3000)
+    server = app.listen(3000);
 
-    var loc = 0
-    browser.on('event', function (e, target) {
+    let loc = 0;
+    browser.on('event', (e, target) => {
       if (target.location && e.type === 'load') {
         if (loc === 1) {
-          callback(target.location.href)
+          callback(target.location.href);
         }
-        loc++
+        loc++;
       }
-    })
+    });
 
-    browser.visit('/?url=' + url, noop)
-  }
+    browser.visit('/?url=' + url, noop);
+  };
 
-  obj.close = function () {
-    server.close()
-  }
+  obj.close = () => {
+    server.close();
+  };
 
-  return obj
-}
+  return obj;
+};

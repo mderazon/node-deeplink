@@ -1,100 +1,117 @@
-/*
-  global describe: true
-  global it: true
-  global beforeEach: true
-  global afterEach: true
-*/
+const assert = require('chai').assert;
+const device = require('./lib/device');
+const Browser = require('./lib/browser');
 
-var assert = require('chai').assert
-var device = require('./lib/device')
-var Browser = require('./lib/browser')
+const url = 'app://test/';
+const fallback = 'https://vandelay.com/';
+const androidPackageName = 'ind.vandelay.art';
+const iosStoreLink =
+  'https://itunes.apple.com/us/app/art-vandelay/id556462755?mt=8&uo=4';
 
-var url = 'app://test'
-var fallback = 'https://vandelay.com/'
-var androidPackageName = 'ind.vandelay.art'
-var iosStoreLink = 'https://itunes.apple.com/us/app/art-vandelay/id556462755?mt=8&uo=4'
+describe('android', () => {
+  let browser;
 
-describe('android', function () {
-  var browser
+  beforeEach(() => {
+    browser = Browser(device.android);
+  });
 
-  beforeEach(function () {
-    browser = Browser(device.android)
-  })
+  afterEach(() => {
+    browser.close();
+  });
 
-  afterEach(function () {
-    browser.close()
-  })
+  it('should return intent on android device', done => {
+    browser.go(
+      url,
+      {
+        fallback: fallback,
+        android_package_name: androidPackageName
+      },
+      res => {
+        assert.equal(
+          res,
+          'intent://test/#Intent;scheme=app;package=ind.vandelay.art;end;'
+        );
+        done();
+      }
+    );
+  });
 
-  it('should return intent on android device', function (done) {
-    browser.go(url, {
-      fallback: fallback,
-      android_package_name: androidPackageName
-    }, function (res) {
-      assert.equal(res, 'intent://test#Intent;scheme=app;package=ind.vandelay.art;end;')
-      done()
-    })
-  })
+  it('should return the fallback url when no package name defined in android', done => {
+    browser.go(
+      url,
+      {
+        fallback: fallback
+      },
+      res => {
+        assert.equal(res, fallback);
+        done();
+      }
+    );
+  });
+});
 
-  it('should return the fallback url when no package name defined in android', function (done) {
-    browser.go(url, {
-      fallback: fallback
-    }, function (res) {
-      assert.equal(res, fallback)
-      done()
-    })
-  })
-})
+describe('ios', () => {
+  let browser;
 
-describe('ios', function () {
-  var browser
+  beforeEach(() => {
+    browser = Browser(device.ios);
+  });
 
-  beforeEach(function () {
-    browser = Browser(device.ios)
-  })
+  afterEach(() => {
+    browser.close();
+  });
 
-  afterEach(function () {
-    browser.close()
-  })
+  it('should return deeplink url on ios device', done => {
+    browser.go(
+      url,
+      {
+        fallback: fallback,
+        ios_store_link: iosStoreLink
+      },
+      res => {
+        assert.equal(res, url);
+        done();
+      }
+    );
+  });
 
-  it('should return deeplink url on ios device', function (done) {
-    browser.go(url, {
-      fallback: fallback,
-      ios_store_link: iosStoreLink
-    }, function (res) {
-      assert.equal(res, url)
-      done()
-    })
-  })
+  it('should return the fallback url when no ios store link defined in ios', done => {
+    browser.go(
+      url,
+      {
+        fallback: fallback
+      },
+      res => {
+        assert.equal(res, fallback);
+        done();
+      }
+    );
+  });
+});
 
-  it('should return the fallback url when no ios store link defined in ios', function (done) {
-    browser.go(url, {
-      fallback: fallback
-    }, function (res) {
-      assert.equal(res, fallback)
-      done()
-    })
-  })
-})
+describe('general', () => {
+  let browser;
 
-describe('general', function () {
-  var browser
+  beforeEach(() => {
+    browser = Browser();
+  });
 
-  beforeEach(function () {
-    browser = Browser()
-  })
+  afterEach(() => {
+    browser.close();
+  });
 
-  afterEach(function () {
-    browser.close()
-  })
-
-  it('should go to fallback url on an unsupported device', function (done) {
-    browser.go(url, {
-      fallback: fallback,
-      ios_store_link: iosStoreLink,
-      android_package_name: androidPackageName
-    }, function (res) {
-      assert.equal(res, fallback)
-      done()
-    })
-  })
-})
+  it('should go to fallback url on an unsupported device', done => {
+    browser.go(
+      url,
+      {
+        fallback: fallback,
+        ios_store_link: iosStoreLink,
+        android_package_name: androidPackageName
+      },
+      res => {
+        assert.equal(res, fallback);
+        done();
+      }
+    );
+  });
+});
