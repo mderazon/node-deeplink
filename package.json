@@ -4,8 +4,8 @@
   "description": "Easily create an endpoint in your web server that redirects deep links to mobile apps",
   "main": "lib/deeplink.js",
   "scripts": {
-    "test:prettier": "prettier --single-quote --list-different '**/*.js'",
-    "fix:prettier": "prettier --single-quote --write '**/*.js'",
+    "test:prettier": "prettier --list-different '**/*.js'",
+    "fix:prettier": "prettier --write '**/*.js'",
     "test": "npm run test:prettier && mocha test/test.js -t 4000"
   },
   "author": "Michael Derazon <mderazon@hotmail.com>",
@@ -19,10 +19,10 @@
     "html-inline": "^1.2.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "express": "^4.14.0",
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
     "mocha": "^4.1.0",
-    "prettier": "^1.9.2",
+    "prettier": "^1.15.2",
     "zombie": "^5.0.7"
   },
   "keywords": [
