@@ -18,9 +18,9 @@ If you already started using Universal Links, you can still use this module as a
 
 Suppose you have a custom url scheme `app://` handled by your mobile apps. You want to create a universal "smart" link that will know where to send the user:
 
-* If the user has the app installed, open the app with the deeplink.
-* If the user doesn't have the app installed, send to the app store to download the app (google play / itunes).
-* If the user doesn't have a supported phone, send to a fallback url.
+- If the user has the app installed, open the app with the deeplink.
+- If the user doesn't have the app installed, send to the app store to download the app (google play / itunes).
+- If the user doesn't have a supported phone, send to a fallback url.
 
 ## Usage
 
@@ -55,17 +55,17 @@ _node-deeplink_ currently only supports Android and ios.
 
 Options to pass on to _node-deeplink_ are:
 
-* `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
-* `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
-* `ios_store_link`: **optional**. In case you want to support ios deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
-* `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
+- `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
+- `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
+- `ios_store_link`: **optional**. In case you want to support ios deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
+- `title`: **optional**. Title for the intermediate html page. Defaults to an empty string.
 
 ### Query params
 
 When a request comes in, the following query params a re checked:
 
-* `url`: **mandatory**. The deeplink url you want the user to be directed to e.g. `app://account`.
-* `fallback`: **optional**. If available, will prefer this fallback address over the one from the options.
+- `url`: **mandatory**. The deeplink url you want the user to be directed to e.g. `app://account`.
+- `fallback`: **optional**. If available, will prefer this fallback address over the one from the options.
 
 ### Behaviour
 
@@ -75,5 +75,5 @@ _node-deeplink_ works by first sending the user to an html page with a user-agen
 
 ### TODO
 
-* Better user-agent discovery.
-* Enable non-express use.
+- Better user-agent discovery.
+- Enable non-express use.
