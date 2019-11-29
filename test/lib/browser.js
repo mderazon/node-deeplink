@@ -27,7 +27,7 @@ module.exports = function(ua) {
       }
     });
 
-    browser.visit('/?url=' + url, noop);
+    browser.visit(url ? `/?url=${url}` : '/', noop);
   };
 
   obj.close = () => {
