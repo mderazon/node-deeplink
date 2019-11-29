@@ -55,6 +55,7 @@ _node-deeplink_ currently only supports Android and ios.
 
 Options to pass on to _node-deeplink_ are:
 
+- `url`: **mandatory**. The deeplink url you want the user to be directed to e.g. `app://account`.
 - `fallback`: **mandatory**. A fallback url in case the user is opening the link via an unsupported platform like desktop / windows phone etc. In such case, the fallback url will be opened in the user's browser like a normal link.
 - `android_package_name`: **optional**. In case you want to support Android deep links, pass your app's package name.
 - `ios_store_link`: **optional**. In case you want to support ios deep links, pass your app's itunes url. You can get it [here](https://linkmaker.itunes.apple.com/us/).
@@ -64,14 +65,12 @@ Options to pass on to _node-deeplink_ are:
 
 When a request comes in, the following query params a re checked:
 
-- `url`: **mandatory**. The deeplink url you want the user to be directed to e.g. `app://account`.
+- `url`: **optional**. If available, will prefer this deeplink url over the one from the options.
 - `fallback`: **optional**. If available, will prefer this fallback address over the one from the options.
 
 ### Behaviour
 
-_node-deeplink_ expects the request to contain a query param `url=...` so that the deeplink mechanism will work. If no such query is present then _node-deeplink_ ignores the request and calls `next()` so the request will be handled by the next middleware.
-
-_node-deeplink_ works by first sending the user to an html page with a user-agent sniffing script. After figuring out the user's device, it redirects the to the predefined deeplink. In practice, after clicking the link, the browser will be opened for a very short moment and then the redirect will happen.
+_node-deeplink_ works by first sending the user to an html page with a user-agent sniffing script. After figuring out the user's device, it redirects them to the predefined deeplink. In practice, after clicking the link, the browser will be opened for a very short moment and then the redirect will happen.
 
 ### TODO
 
