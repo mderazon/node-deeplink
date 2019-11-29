@@ -63,7 +63,7 @@ Options to pass on to _node-deeplink_ are:
 
 ### Query params
 
-When a request comes in, the following query params a re checked:
+When a request comes in, the following query params are checked:
 
 - `url`: **optional**. If available, will prefer this deeplink url over the one from the options.
 - `fallback`: **optional**. If available, will prefer this fallback address over the one from the options.
