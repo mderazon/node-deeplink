@@ -36,6 +36,24 @@ describe('android', () => {
     );
   });
 
+  it('should return intent on android device based on configured url', done => {
+    browser.go(
+      null,
+      {
+        fallback: fallback,
+        android_package_name: androidPackageName,
+        url: url
+      },
+      res => {
+        assert.equal(
+          res,
+          'intent://test/#Intent;scheme=app;package=ind.vandelay.art;end;'
+        );
+        done();
+      }
+    );
+  });
+
   it('should return the fallback url when no package name defined in android', done => {
     browser.go(
       url,
@@ -67,6 +85,21 @@ describe('ios', () => {
       {
         fallback: fallback,
         ios_store_link: iosStoreLink
+      },
+      res => {
+        assert.equal(res, url);
+        done();
+      }
+    );
+  });
+
+  it('should return deeplink url on ios device based on configured url', done => {
+    browser.go(
+      null,
+      {
+        fallback: fallback,
+        ios_store_link: iosStoreLink,
+        url: url
       },
       res => {
         assert.equal(res, url);
@@ -107,6 +140,22 @@ describe('general', () => {
         fallback: fallback,
         ios_store_link: iosStoreLink,
         android_package_name: androidPackageName
+      },
+      res => {
+        assert.equal(res, fallback);
+        done();
+      }
+    );
+  });
+
+  it('should use the configured url if none was provided in the query params', done => {
+    browser.go(
+      null,
+      {
+        fallback: fallback,
+        ios_store_link: iosStoreLink,
+        android_package_name: androidPackageName,
+        url: url
       },
       res => {
         assert.equal(res, fallback);
