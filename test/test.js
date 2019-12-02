@@ -3,6 +3,7 @@ const device = require('./lib/device');
 const Browser = require('./lib/browser');
 
 const url = 'app://test/';
+const path = url.split(/:\/\/(.+)/)[1];
 const fallback = 'https://vandelay.com/';
 const androidPackageName = 'ind.vandelay.art';
 const iosStoreLink =
@@ -61,7 +62,8 @@ describe('android', () => {
         fallback: fallback
       },
       res => {
-        assert.equal(res, fallback);
+        console.log(res);
+        assert.equal(res, fallback + '/' + path);
         done();
       }
     );
@@ -115,7 +117,7 @@ describe('ios', () => {
         fallback: fallback
       },
       res => {
-        assert.equal(res, fallback);
+        assert.equal(res, fallback + '/' + path);
         done();
       }
     );
@@ -142,7 +144,7 @@ describe('general', () => {
         android_package_name: androidPackageName
       },
       res => {
-        assert.equal(res, fallback);
+        assert.equal(res, fallback + '/' + path);
         done();
       }
     );
