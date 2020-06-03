@@ -19,14 +19,14 @@ describe('android', () => {
     browser.close();
   });
 
-  it('should return intent on android device', done => {
+  it('should return intent on android device', (done) => {
     browser.go(
       url,
       {
         fallback: fallback,
-        android_package_name: androidPackageName
+        android_package_name: androidPackageName,
       },
-      res => {
+      (res) => {
         assert.equal(
           res,
           'intent://test/#Intent;scheme=app;package=ind.vandelay.art;end;'
@@ -36,15 +36,15 @@ describe('android', () => {
     );
   });
 
-  it('should return intent on android device based on configured url', done => {
+  it('should return intent on android device based on configured url', (done) => {
     browser.go(
       null,
       {
         fallback: fallback,
         android_package_name: androidPackageName,
-        url: url
+        url: url,
       },
-      res => {
+      (res) => {
         assert.equal(
           res,
           'intent://test/#Intent;scheme=app;package=ind.vandelay.art;end;'
@@ -54,13 +54,13 @@ describe('android', () => {
     );
   });
 
-  it('should return the fallback url when no package name defined in android', done => {
+  it('should return the fallback url when no package name defined in android', (done) => {
     browser.go(
       url,
       {
-        fallback: fallback
+        fallback: fallback,
       },
-      res => {
+      (res) => {
         assert.equal(res, fallback);
         done();
       }
@@ -79,42 +79,42 @@ describe('ios', () => {
     browser.close();
   });
 
-  it('should return deeplink url on ios device', done => {
+  it('should return deeplink url on ios device', (done) => {
     browser.go(
       url,
       {
         fallback: fallback,
-        ios_store_link: iosStoreLink
+        ios_store_link: iosStoreLink,
       },
-      res => {
+      (res) => {
         assert.equal(res, url);
         done();
       }
     );
   });
 
-  it('should return deeplink url on ios device based on configured url', done => {
+  it('should return deeplink url on ios device based on configured url', (done) => {
     browser.go(
       null,
       {
         fallback: fallback,
         ios_store_link: iosStoreLink,
-        url: url
+        url: url,
       },
-      res => {
+      (res) => {
         assert.equal(res, url);
         done();
       }
     );
   });
 
-  it('should return the fallback url when no ios store link defined in ios', done => {
+  it('should return the fallback url when no ios store link defined in ios', (done) => {
     browser.go(
       url,
       {
-        fallback: fallback
+        fallback: fallback,
       },
-      res => {
+      (res) => {
         assert.equal(res, fallback);
         done();
       }
@@ -133,31 +133,31 @@ describe('general', () => {
     browser.close();
   });
 
-  it('should go to fallback url on an unsupported device', done => {
+  it('should go to fallback url on an unsupported device', (done) => {
     browser.go(
       url,
       {
         fallback: fallback,
         ios_store_link: iosStoreLink,
-        android_package_name: androidPackageName
+        android_package_name: androidPackageName,
       },
-      res => {
+      (res) => {
         assert.equal(res, fallback);
         done();
       }
     );
   });
 
-  it('should use the configured url if none was provided in the query params', done => {
+  it('should use the configured url if none was provided in the query params', (done) => {
     browser.go(
       null,
       {
         fallback: fallback,
         ios_store_link: iosStoreLink,
         android_package_name: androidPackageName,
-        url: url
+        url: url,
       },
-      res => {
+      (res) => {
         assert.equal(res, fallback);
         done();
       }

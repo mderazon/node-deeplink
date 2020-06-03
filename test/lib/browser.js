@@ -4,7 +4,7 @@ const deeplink = require('../..');
 
 const noop = () => {};
 
-module.exports = function(ua) {
+module.exports = function (ua) {
   const obj = {};
   Browser.localhost('localhost', 3000);
   const browser = new Browser();
