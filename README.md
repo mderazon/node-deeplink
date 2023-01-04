@@ -1,10 +1,15 @@
-# node-deeplink [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+# deeplink-handler [![Build Status](https://travis-ci.org/mderazon/node-deeplink.svg?branch=master)](https://travis-ci.org/mderazon/node-deeplink) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 > Easily create express endpoint to handle mobile deeplinks in your web server
 
 Takes away the pain of forwarding users to the right app store / mobile app depending on their platform.
+## Important
+This is a fork of node-deeplink ( https://github.com/mderazon/node-deeplink ). The original module has security issue due to its dependency on `html-inline`, which is no longer maintained.
+This module depends on `inline-source` instead. For the rest, its API has remained the same and can be used as drop in replacement for `node-deeplink`.
 
-## Important update
+
+
+## Notice regarding Apple's handling of url schemes.
 
 In ios >= 9, Apple has made it impossible to provide a smooth user experience to redirect user to app / fallback to app store from javascript. Their clear direction is pushing towards using Universal Links instead.
 
