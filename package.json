@@ -1,6 +1,6 @@
 {
   "name": "node-deeplink",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Easily create an endpoint in your web server that redirects deep links to mobile apps",
   "main": "lib/deeplink.js",
   "scripts": {
@@ -16,12 +16,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "html-inline": "^1.2.0"
+    "inline-source": "^8.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "express": "^4.17.1",
-    "mocha": "^7.2.0",
+    "mocha": "^10.2.0",
     "prettier": "^2.0.5",
     "zombie": "^6.1.4"
   },
